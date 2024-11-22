@@ -2,13 +2,14 @@
 .container {
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    justify-content: center; /* Centraliza o conteúdo verticalmente */
+    align-items: center; /* Centraliza o conteúdo horizontalmente */
+    height: 100vh; /* Usamos 100vh para garantir que o container ocupe toda a altura da tela */
     margin: 0;
     background-image: url("wall.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    justify-content: center; /* Isso vai centralizar o conteúdo verticalmente */
 }
 
 /* Menu no topo */
@@ -94,3 +95,4 @@
 body {
     margin: 0;
 }
+
