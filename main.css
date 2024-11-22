@@ -28,8 +28,8 @@
 /* Área onde os quadrados (game) são exibidos */
 .panel {
     display: grid;
-    grid-template-columns: repeat(3, 150px); /* Tamanho fixo de 150px para cada quadrado */
-    grid-template-rows: repeat(3, 150px); /* Tamanho fixo de 150px para cada quadrado */
+    grid-template-columns: repeat(3, 1fr); /* Ajusta o tamanho dos quadrados para serem responsivos */
+    grid-template-rows: repeat(3, 1fr); /* Ajusta o tamanho dos quadrados para serem responsivos */
     gap: 0; /* Remove qualquer espaço entre os quadrados */
     justify-content: center;
     align-items: center;
@@ -90,6 +90,19 @@
     .square {
         height: 100px;
         width: 100px;
+    }
+}
+
+/* Responsividade para telas maiores */
+@media (min-width: 769px) {
+    .panel {
+        grid-template-columns: repeat(3, 150px); /* Tamanho fixo de 150px para cada quadrado */
+        grid-template-rows: repeat(3, 150px); /* Tamanho fixo de 150px para cada quadrado */
+    }
+
+    .square {
+        height: 150px;
+        width: 150px;
     }
 }
 
