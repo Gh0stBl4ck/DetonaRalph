@@ -1,17 +1,15 @@
-/* Container principal */
+/* Garante que o container ocupe toda a altura da tela e seja flexível */
 .container {
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Centraliza verticalmente */
-    align-items: center; /* Centraliza horizontalmente */
-    height: 100vh; /* Ocupa toda a altura da tela */
+    justify-content: center; /* Centraliza o conteúdo verticalmente */
+    align-items: center; /* Centraliza o conteúdo horizontalmente */
+    height: 100vh;
     background-image: url("wall.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+    background-size: cover; /* Se necessário, ajuste o fundo */
 }
 
-/* Menu no topo */
+/* Menu superior com espaçamento adequado */
 .menu {
     display: flex;
     justify-content: space-evenly;
@@ -23,74 +21,39 @@
     border-bottom: 5px solid #ffd700;
 }
 
-/* Área onde os quadrados (game) são exibidos */
+/* Painel com as quadrículas do jogo */
 .panel {
-    display: grid;
-    grid-template-columns: repeat(3, 150px); /* 150px para cada quadrado */
-    grid-template-rows: repeat(3, 150px); /* 150px para cada quadrado */
-    gap: 0; /* Remove qualquer espaço entre os quadrados */
-    justify-items: center; /* Garante que os quadrados sejam centralizados */
-    align-items: center; /* Centraliza o conteúdo na vertical */
-    margin-top: 30px; /* Ajusta a distância entre o menu e o jogo */
-    margin-bottom: 30px; /* Ajusta a distância do fundo */
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-/* Quadrado padrão do jogo */
+/* Ajusta a exibição das quadrículas de forma que não fique muito grande */
 .square {
-    height: 150px;
-    width: 150px;
+    height: 100px; /* Diminuindo o tamanho para manter os quadrados no lugar certo */
+    width: 100px;
     border: 1px solid #000000;
     background-color: #1aeaa5;
-    box-sizing: border-box; /* Garante que bordas não aumentem o tamanho do quadrado */
+    box-sizing: border-box; /* Para não estourar o tamanho dos quadrados */
 }
 
-/* Quadrado com o inimigo (Imagem do Ralph) */
+/* Imagem do inimigo centralizada dentro do quadrado */
 .enemy {
     background-image: url("ralph.png");
     background-size: cover;
 }
 
-/* Menu de vidas, score e tempo */
+/* Seção de vidas do menu */
 .menu-lives {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
+/* Espaçamento entre o título e os valores de tempo e score */
 .menu-time h2:nth-child(2),
 .menu-score h2:nth-child(2) {
     margin-top: 1rem;
-}
-
-/* Responsividade para dispositivos móveis */
-@media (max-width: 768px) {
-    .container {
-        padding: 1rem; /* Margem ao redor do conteúdo em telas pequenas */
-    }
-
-    .menu {
-        flex-direction: column;
-        text-align: center;
-        height: auto;
-        padding: 0.5rem;
-    }
-
-    .menu-lives img {
-        height: 40px;
-    }
-
-    .panel {
-        grid-template-columns: repeat(3, 100px); /* Reduz o tamanho dos quadrados para 100px em telas menores */
-        grid-template-rows: repeat(3, 100px);
-    }
-
-    .square {
-        height: 100px;
-        width: 100px;
-    }
-}
-
-/* Remover margem do body */
-body {
-    margin: 0;
 }
