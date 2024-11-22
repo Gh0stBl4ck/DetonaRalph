@@ -1,15 +1,15 @@
-/* Garante que o container ocupe toda a altura da tela e seja flexível */
+/* Estilo padrão para o computador */
 .container {
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Centraliza o conteúdo verticalmente */
-    align-items: center; /* Centraliza o conteúdo horizontalmente */
+    justify-content: center;
+    align-items: center;
     height: 100vh;
     background-image: url("wall.png");
-    background-size: cover; /* Se necessário, ajuste o fundo */
+    background-size: cover;
 }
 
-/* Menu superior com espaçamento adequado */
+/* Menu superior */
 .menu {
     display: flex;
     justify-content: space-evenly;
@@ -21,7 +21,7 @@
     border-bottom: 5px solid #ffd700;
 }
 
-/* Painel com as quadrículas do jogo */
+/* Painel das quadrículas */
 .panel {
     margin-top: 1rem;
     display: flex;
@@ -30,30 +30,51 @@
     align-items: center;
 }
 
-/* Ajusta a exibição das quadrículas de forma que não fique muito grande */
+/* Quadrados no painel - para computador */
 .square {
-    height: 100px; /* Diminuindo o tamanho para manter os quadrados no lugar certo */
-    width: 100px;
+    height: 150px;  /* Ajuste do tamanho para computador */
+    width: 150px;
     border: 1px solid #000000;
     background-color: #1aeaa5;
-    box-sizing: border-box; /* Para não estourar o tamanho dos quadrados */
+    box-sizing: border-box;
 }
 
-/* Imagem do inimigo centralizada dentro do quadrado */
+/* Imagem do inimigo */
 .enemy {
     background-image: url("ralph.png");
     background-size: cover;
 }
 
-/* Seção de vidas do menu */
+/* Menu de vidas */
 .menu-lives {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-/* Espaçamento entre o título e os valores de tempo e score */
-.menu-time h2:nth-child(2),
-.menu-score h2:nth-child(2) {
-    margin-top: 1rem;
+/* Ajustes para celular usando media queries */
+@media only screen and (max-width: 768px) {
+    .container {
+        height: 100vh;  /* Para celulares, ainda ocupa 100% da tela */
+        background-size: cover;
+    }
+
+    /* Menu em celular */
+    .menu {
+        height: 80px; /* Tamanho do menu reduzido no celular */
+    }
+
+    /* Quadrados no painel - para celular */
+    .square {
+        height: 100px;  /* Quadrados menores no celular */
+        width: 100px;
+    }
+
+    /* Painel ajustado */
+    .panel {
+        margin-top: 1rem;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* Ajuste para manter 3 colunas no celular */
+        gap: 5px;
+    }
 }
