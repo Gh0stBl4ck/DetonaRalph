@@ -13,7 +13,7 @@ Jogo do Detona Ralph
 <br>
 
 <p align="center">
-  <img alt="Concessionária" src="Detona.png" width="100%">
+  <img alt="Concessionária" src="baixados.png" width="100%">
 </p>
 
 ## 🚀 Tecnologias
