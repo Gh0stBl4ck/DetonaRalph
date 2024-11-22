@@ -22,8 +22,8 @@
 .panel {
     margin-top: 1rem;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
+    grid-template-columns: repeat(3, 1fr); /* Garante que haverá 3 colunas */
+    gap: 0; /* Remove qualquer espaço entre os quadrados */
     justify-content: center;
 }
 
@@ -32,6 +32,7 @@
     width: 150px;
     border: 1px solid #000000;
     background-color: #1aeaa5;
+    box-sizing: border-box; /* Inclui as bordas no tamanho total do quadrado */
 }
 
 .enemy {
@@ -76,4 +77,12 @@
         height: 100px;
         width: 100px;
     }
+}
+
+body {
+    margin: 0; /* Remove margens externas */
+}
+
+.panel-row {
+    padding: 0; /* Remove qualquer padding de linha */
 }
