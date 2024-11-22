@@ -4,7 +4,7 @@ const state = {
         enemy: document.querySelector(".enemy"),
         timeLeft: document.querySelector("#time-left"),
         score: document.querySelector("#score"),
-        live: document.querySelector(".menu-lives h2"), // Corrigido para o elemento das vidas
+        live: document.querySelector(".menu-lives h2"), 
     },
 
     values: {
@@ -22,25 +22,25 @@ const state = {
 };
 
 function resetGame() {
-    state.values.curretTime = 60; // Resetando o tempo
-    state.values.result = 0; // Resetando o placar
+    state.values.curretTime = 60; 
+    state.values.result = 0; 
     state.view.timeLeft.textContent = state.values.curretTime;
     state.view.score.textContent = state.values.result;
 }
 
 function loseLife() {
-    state.values.lives--; // Reduz uma vida
-    state.view.live.textContent = `x${state.values.lives}`; // Atualiza a exibição de vidas
+    state.values.lives--; 
+    state.view.live.textContent = `x${state.values.lives}`; 
 
     if (state.values.lives === 0) {
-        // Se as vidas acabarem, reseta tudo
+        
         alert("Você perdeu todas as vidas! Jogo reiniciado.");
-        state.values.lives = 3; // Reseta vidas
-        resetGame(); // Reseta tempo e score
-        state.view.live.textContent = `x${state.values.lives}`; // Atualiza a exibição
+        state.values.lives = 3; 
+        resetGame(); 
+        state.view.live.textContent = `x${state.values.lives}`; 
     } else {
         alert("Você perdeu uma vida! Sua pontuação foi: " + state.values.result + (".") + (" Prepare-se para continuar!"));
-        resetGame(); // Reseta apenas tempo e score
+        resetGame(); 
     }
 }
 
@@ -51,13 +51,13 @@ function countDown() {
     if (state.values.curretTime <= 0) {
         clearInterval(state.actions.countDownTimerId);
         clearInterval(state.actions.timerId);
-        loseLife(); // Chama a função para perder uma vida
-        initialize(); // Reinicia o jogo
+        loseLife(); 
+        initialize();
     }
 }
 
 function playSound() {
-    let audio = new Audio("hit.m4a");
+    let audio = new Audio("./hit.m4a");
     audio.volume = 0.2;
     audio.play();
 }
