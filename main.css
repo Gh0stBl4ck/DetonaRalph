@@ -1,15 +1,19 @@
-/* Estilo padrão para o computador */
+/* Container principal */
 .container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    justify-content: space-between; /* Espaço entre o topo e o fundo */
+    align-items: center; /* Centraliza horizontalmente */
+    height: 100vh; /* Ocupa toda a altura da tela */
+    padding-top: 20px; /* Distância entre o topo da tela e o menu */
+    padding-bottom: 20px; /* Distância entre a base da tela e o final do conteúdo */
     background-image: url("wall.png");
     background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
-/* Menu superior */
+/* Menu no topo */
 .menu {
     display: flex;
     justify-content: space-evenly;
@@ -21,60 +25,75 @@
     border-bottom: 5px solid #ffd700;
 }
 
-/* Painel das quadrículas */
+/* Área onde os quadrados (game) são exibidos */
 .panel {
-    margin-top: 1rem;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(3, 150px); /* Tamanho fixo de 150px para cada quadrado */
+    grid-template-rows: repeat(3, 150px); /* Tamanho fixo de 150px para cada quadrado */
+    gap: 0; /* Remove qualquer espaço entre os quadrados */
     justify-content: center;
     align-items: center;
+    margin-top: 30px; /* Ajusta a distância entre o menu e o jogo */
+    margin-bottom: 30px; /* Ajusta a distância do fundo */
 }
 
-/* Quadrados no painel - para computador */
+/* Quadrado padrão do jogo */
 .square {
-    height: 150px;  /* Ajuste do tamanho para computador */
+    height: 150px;
     width: 150px;
     border: 1px solid #000000;
     background-color: #1aeaa5;
-    box-sizing: border-box;
+    box-sizing: border-box; /* Garante que bordas não aumentem o tamanho do quadrado */
 }
 
-/* Imagem do inimigo */
+/* Quadrado com o inimigo (Imagem do Ralph) */
 .enemy {
     background-image: url("ralph.png");
     background-size: cover;
 }
 
-/* Menu de vidas */
+/* Menu de vidas, score e tempo */
 .menu-lives {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-/* Ajustes para celular usando media queries */
-@media only screen and (max-width: 768px) {
+.menu-time h2:nth-child(2),
+.menu-score h2:nth-child(2) {
+    margin-top: 1rem;
+}
+
+/* Responsividade para dispositivos móveis */
+@media (max-width: 768px) {
     .container {
-        height: 100vh;  /* Para celulares, ainda ocupa 100% da tela */
-        background-size: cover;
+        width: 100%;
+        padding: 1rem;
     }
 
-    /* Menu em celular */
     .menu {
-        height: 80px; /* Tamanho do menu reduzido no celular */
+        flex-direction: column;
+        text-align: center;
+        height: auto;
+        padding: 0.5rem;
     }
 
-    /* Quadrados no painel - para celular */
+    .menu-lives img {
+        height: 40px;
+    }
+
+    .panel {
+        grid-template-columns: repeat(3, 100px); /* Reduz o tamanho dos quadrados para 100px em telas menores */
+        grid-template-rows: repeat(3, 100px);
+    }
+
     .square {
-        height: 100px;  /* Quadrados menores no celular */
+        height: 100px;
         width: 100px;
     }
+}
 
-    /* Painel ajustado */
-    .panel {
-        margin-top: 1rem;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr); /* Ajuste para manter 3 colunas no celular */
-        gap: 5px;
-    }
+/* Remover margem do body */
+body {
+    margin: 0;
 }
