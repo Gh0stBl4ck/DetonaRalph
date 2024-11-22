@@ -1,7 +1,8 @@
+/* Container principal */
 .container {
     display: flex;
     flex-direction: column;
-    height: 100vh; /* Certificando que o contêiner preenche toda a tela */
+    height: 100vh;
     margin: 0;
     background-image: url("wall.png");
     background-size: cover;
@@ -9,6 +10,7 @@
     background-position: center;
 }
 
+/* Menu no topo */
 .menu {
     display: flex;
     justify-content: space-evenly;
@@ -20,29 +22,33 @@
     border-bottom: 5px solid #ffd700;
 }
 
+/* Área onde os quadrados (game) são exibidos */
 .panel {
-    margin-top: 1rem;
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Garante 3 colunas */
-    grid-template-rows: repeat(3, 1fr); /* Garante 3 linhas */
-    gap: 0; /* Remover espaços entre os quadrados */
-    width: 100%; /* Certificando que a largura é 100% */
-    height: calc(100vh - 90px - 1rem); /* Ajusta o tamanho da área do jogo */
+    grid-template-columns: repeat(3, 150px); /* Tamanho fixo de 150px para cada quadrado */
+    grid-template-rows: repeat(3, 150px); /* Tamanho fixo de 150px para cada quadrado */
+    gap: 0; /* Remove qualquer espaço entre os quadrados */
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
 }
 
+/* Quadrado padrão do jogo */
 .square {
-    width: 100%; /* Garante que o quadrado ocupe toda a largura disponível */
-    height: 100%; /* Garante que o quadrado ocupe toda a altura disponível */
+    height: 150px;
+    width: 150px;
     border: 1px solid #000000;
     background-color: #1aeaa5;
-    box-sizing: border-box; /* Inclui as bordas no tamanho total */
+    box-sizing: border-box; /* Garante que bordas não aumentem o tamanho do quadrado */
 }
 
+/* Quadrado com o inimigo (Imagem do Ralph) */
 .enemy {
     background-image: url("ralph.png");
     background-size: cover;
 }
 
+/* Menu de vidas, score e tempo */
 .menu-lives {
     display: flex;
     align-items: center;
@@ -73,7 +79,8 @@
     }
 
     .panel {
-        gap: 0; /* Certificando-se de que não há espaço entre os quadrados */
+        grid-template-columns: repeat(3, 100px); /* Reduz o tamanho dos quadrados para 100px em telas menores */
+        grid-template-rows: repeat(3, 100px);
     }
 
     .square {
@@ -82,7 +89,8 @@
     }
 }
 
+/* Remover margem do body */
 body {
-    margin: 0; /* Remove margens externas do body */
+    margin: 0;
 }
 
