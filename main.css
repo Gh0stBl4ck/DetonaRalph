@@ -1,17 +1,16 @@
-.container {
+.container{
     display: flex;
     flex-direction: column;
-    height: 100vh; /* Corrigido para vh */
+    height: 100hv;
     background-image: url("wall.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+
 }
 
-.menu {
+.menu{
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+
     height: 90px;
     width: 100%;
     background-color: #000000;
@@ -19,70 +18,33 @@
     border-bottom: 5px solid #ffd700;
 }
 
-.panel {
+.panel{
     margin-top: 1rem;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Garante que haverá 3 colunas */
-    gap: 0; /* Remove qualquer espaço entre os quadrados */
+    display: flex;
+    align-items: center;
     justify-content: center;
+
 }
 
-.square {
+.square{
     height: 150px;
     width: 150px;
     border: 1px solid #000000;
     background-color: #1aeaa5;
-    box-sizing: border-box; /* Inclui as bordas no tamanho total do quadrado */
 }
 
-.enemy {
+.enemy{
     background-image: url("ralph.png");
     background-size: cover;
 }
 
-.menu-lives {
+.menu-lives{
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .menu-time h2:nth-child(2),
-.menu-score h2:nth-child(2) {
+.menu-score h2:nth-child(2){
     margin-top: 1rem;
-}
-
-/* Responsividade para dispositivos móveis */
-@media (max-width: 768px) {
-    .container {
-        width: 100%;
-        padding: 1rem;
-    }
-
-    .menu {
-        flex-direction: column;
-        text-align: center;
-        height: auto;
-        padding: 0.5rem;
-    }
-
-    .menu-lives img {
-        height: 40px;
-    }
-
-    .panel {
-        gap: 5px;
-    }
-
-    .square {
-        height: 100px;
-        width: 100px;
-    }
-}
-
-body {
-    margin: 0; /* Remove margens externas */
-}
-
-.panel-row {
-    padding: 0; /* Remove qualquer padding de linha */
 }
