@@ -36,7 +36,7 @@ function loseLife() {
         resetGame();
         state.view.live.textContent = `x${state.values.lives}`;
     } else {
-        alert("Você perdeu uma vida! Prepare-se para continuar.");
+        alert("Você perdeu uma vida!" + state.values.result + (".") + (" Prepare-se para continuar!") );
         resetGame();
     }
 }
