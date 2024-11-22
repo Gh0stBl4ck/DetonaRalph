@@ -8,6 +8,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    justify-content: center; /* Isso vai centralizar o conteúdo verticalmente */
 }
 
 /* Menu no topo */
@@ -30,7 +31,7 @@
     gap: 0; /* Remove qualquer espaço entre os quadrados */
     justify-content: center;
     align-items: center;
-    margin-top: 1rem;
+    margin-top: 2rem; /* Ajusta a distância entre o menu e o jogo */
 }
 
 /* Quadrado padrão do jogo */
@@ -93,4 +94,3 @@
 body {
     margin: 0;
 }
-
