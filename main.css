@@ -2,11 +2,9 @@
 .container {
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Espaço entre o topo e o fundo */
+    justify-content: center; /* Centraliza verticalmente */
     align-items: center; /* Centraliza horizontalmente */
     height: 100vh; /* Ocupa toda a altura da tela */
-    padding-top: 20px; /* Distância entre o topo da tela e o menu */
-    padding-bottom: 20px; /* Distância entre a base da tela e o final do conteúdo */
     background-image: url("wall.png");
     background-size: cover;
     background-repeat: no-repeat;
@@ -28,11 +26,11 @@
 /* Área onde os quadrados (game) são exibidos */
 .panel {
     display: grid;
-    grid-template-columns: repeat(3, 150px); /* Tamanho fixo de 150px para cada quadrado */
-    grid-template-rows: repeat(3, 150px); /* Tamanho fixo de 150px para cada quadrado */
+    grid-template-columns: repeat(3, 150px); /* 150px para cada quadrado */
+    grid-template-rows: repeat(3, 150px); /* 150px para cada quadrado */
     gap: 0; /* Remove qualquer espaço entre os quadrados */
-    justify-content: center;
-    align-items: center;
+    justify-items: center; /* Garante que os quadrados sejam centralizados */
+    align-items: center; /* Centraliza o conteúdo na vertical */
     margin-top: 30px; /* Ajusta a distância entre o menu e o jogo */
     margin-bottom: 30px; /* Ajusta a distância do fundo */
 }
@@ -67,8 +65,7 @@
 /* Responsividade para dispositivos móveis */
 @media (max-width: 768px) {
     .container {
-        width: 100%;
-        padding: 1rem;
+        padding: 1rem; /* Margem ao redor do conteúdo em telas pequenas */
     }
 
     .menu {
