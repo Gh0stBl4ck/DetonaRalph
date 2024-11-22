@@ -1,12 +1,12 @@
 .container {
     display: flex;
     flex-direction: column;
-    height: 100vh; /* Corrigido para vh */
+    height: 100vh; /* Certificando que o contêiner preenche toda a tela */
+    margin: 0;
     background-image: url("wall.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    margin: 0; /* Certificando-se de que não haja margens indesejadas */
 }
 
 .menu {
@@ -23,17 +23,19 @@
 .panel {
     margin-top: 1rem;
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 colunas de quadrados */
-    gap: 0; /* Remove qualquer espaço entre os quadrados */
-    justify-items: stretch; /* Garante que todos os quadrados tenham o mesmo tamanho */
+    grid-template-columns: repeat(3, 1fr); /* Garante 3 colunas */
+    grid-template-rows: repeat(3, 1fr); /* Garante 3 linhas */
+    gap: 0; /* Remover espaços entre os quadrados */
+    width: 100%; /* Certificando que a largura é 100% */
+    height: calc(100vh - 90px - 1rem); /* Ajusta o tamanho da área do jogo */
 }
 
 .square {
-    height: 150px;
-    width: 150px;
+    width: 100%; /* Garante que o quadrado ocupe toda a largura disponível */
+    height: 100%; /* Garante que o quadrado ocupe toda a altura disponível */
     border: 1px solid #000000;
     background-color: #1aeaa5;
-    box-sizing: border-box; /* Inclui bordas no tamanho total */
+    box-sizing: border-box; /* Inclui as bordas no tamanho total */
 }
 
 .enemy {
@@ -71,7 +73,7 @@
     }
 
     .panel {
-        gap: 0; /* Remove espaços entre quadrados também na versão móvel */
+        gap: 0; /* Certificando-se de que não há espaço entre os quadrados */
     }
 
     .square {
@@ -83,3 +85,4 @@
 body {
     margin: 0; /* Remove margens externas do body */
 }
+
