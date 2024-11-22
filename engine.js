@@ -4,9 +4,8 @@ const state = {
         enemy: document.querySelector(".enemy"),
         timeLeft: document.querySelector("#time-left"),
         score: document.querySelector("#score"),
-        live: document.querySelector(".menu-lives h2"), 
+        live: document.querySelector(".menu-lives h2"),
     },
-
     values: {
         gameVelocity: 1000,
         hitPosition: 0,
@@ -14,7 +13,6 @@ const state = {
         curretTime: 60,
         lives: 3,
     },
-
     actions: {
         timerId: null,
         countDownTimerId: null,
@@ -22,25 +20,24 @@ const state = {
 };
 
 function resetGame() {
-    state.values.curretTime = 60; 
-    state.values.result = 0; 
+    state.values.curretTime = 60;
+    state.values.result = 0;
     state.view.timeLeft.textContent = state.values.curretTime;
     state.view.score.textContent = state.values.result;
 }
 
 function loseLife() {
-    state.values.lives--; 
-    state.view.live.textContent = `x${state.values.lives}`; 
+    state.values.lives--;
+    state.view.live.textContent = `x${state.values.lives}`;
 
     if (state.values.lives === 0) {
-        
         alert("Você perdeu todas as vidas! Jogo reiniciado.");
-        state.values.lives = 3; 
-        resetGame(); 
-        state.view.live.textContent = `x${state.values.lives}`; 
+        state.values.lives = 3;
+        resetGame();
+        state.view.live.textContent = `x${state.values.lives}`;
     } else {
-        alert("Você perdeu uma vida! Sua pontuação foi: " + state.values.result + (".") + (" Prepare-se para continuar!"));
-        resetGame(); 
+        alert("Você perdeu uma vida! Prepare-se para continuar.");
+        resetGame();
     }
 }
 
@@ -51,13 +48,13 @@ function countDown() {
     if (state.values.curretTime <= 0) {
         clearInterval(state.actions.countDownTimerId);
         clearInterval(state.actions.timerId);
-        loseLife(); 
+        loseLife();
         initialize();
     }
 }
 
 function playSound() {
-    let audio = new Audio("audio/hit.m4a");
+    let audio = new Audio("../src/audios/hit.m4a");
     audio.volume = 0.2;
     audio.play();
 }
@@ -79,15 +76,19 @@ function moveEnemy() {
 
 function addListenerHitBox() {
     state.view.squares.forEach((square) => {
-        square.addEventListener("mousedown", () => {
-            if (square.id === state.values.hitPosition) {
-                state.values.result++;
-                state.view.score.textContent = state.values.result;
-                state.values.hitPosition = null;
-                playSound();
-            }
-        });
+        square.addEventListener("mousedown", handleHit); // Para PC
+        square.addEventListener("touchstart", handleHit); // Para celular
     });
+}
+
+function handleHit(event) {
+    const square = event.target;
+    if (square.id === state.values.hitPosition) {
+        state.values.result++;
+        state.view.score.textContent = state.values.result;
+        state.values.hitPosition = null;
+        playSound();
+    }
 }
 
 function initialize() {
